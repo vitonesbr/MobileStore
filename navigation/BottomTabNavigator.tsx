@@ -103,7 +103,7 @@ function HomeNavigator() {
       <HomeStack.Screen
         name="Home"
         component={Home}
-        options={{ headerTitle: 'Tela Home' }}
+        options={{ headerTitle: 'Vitones Store',headerTitleAlign:'center' }}
       />
     </HomeStack.Navigator>
   );
@@ -117,7 +117,7 @@ function CarrinhoNavigator() {
       <CarrinhoStack.Screen
         name="Carrinho"
         component={Carrinho}
-        options={{ headerTitle: 'Tela Carrinho' }}
+        options={{ headerTitle: 'Vitones Store',headerTitleAlign:'center' }}
       />
     </CarrinhoStack.Navigator>
   );
@@ -131,7 +131,7 @@ function PerfilNavigator() {
       <PerfilStack.Screen
         name="Perfil"
         component={Perfil}
-        options={{ headerTitle: 'Tela Perfil' }}
+        options={{ headerTitle: 'Vitones Store',headerTitleAlign:'center' }}
       />
     </PerfilStack.Navigator>
   );
@@ -145,7 +145,7 @@ function CadastroNavigator() {
       <CadastroStack.Screen
         name="Cadastro"
         component={Cadastro}
-        options={{ headerTitle: 'Tela Cadastro' }}
+        options={{ headerTitle: 'Vitones Store',headerTitleAlign:'center' }}
       />
     </CadastroStack.Navigator>
   );

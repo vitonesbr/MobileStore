@@ -1,8 +1,9 @@
 import * as React from "react";
 import {View,Text,Image} from "react-native";
+import { TouchableOpacity } from "react-native-gesture-handler";
 import {ipserver} from "../config/settings";
 import {styles} from '../css/styles';
-
+import {AntDesign} from '@expo/vector-icons';
 
 export default function Detalhes({route}){
 
@@ -35,12 +36,26 @@ React.useEffect(()=>{
             <View style={styles.display}>
 
                     <View style={styles.cxproduto}>
-                        <Image source={{uri:`${produto.foto}`}} style={styles.foto}/>
+                        <Image source={{uri:`${produto.foto}`}} style={styles.fotodetalhe}/>
 
                         <Text style={styles.nomeproduto}>{produto.nomeproduto}</Text>
 
+                        <Text style={styles.nomeproduto}>{produto.descricao}</Text>
+
                         <Text style={styles.preco}>{produto.preco}</Text>
+
+                        <Text style={styles.preco}> Código do produto:{produto._id}</Text>
                     </View>
+
+                    <TouchableOpacity onPress={()=>{
+                        adicionarCarrinho(produto);
+                    }} style={styles.btncarrinho}>
+                        <Text style={styles.txtcarrinho}>
+                            Adicionar ao carrinho
+                            <AntDesign name='shoppingcart' size={20} color='#fff'/>    
+                            
+                        </Text>
+                    </TouchableOpacity>
             
             </View>
 
@@ -48,3 +63,22 @@ React.useEffect(()=>{
     )
 }
 
+function adicionarCarrinho(dados){
+    fetch(`${ipserver}carrinho/adicionar`,{
+        method:"POST",
+        headers:{
+            accept:"application/json",
+            "content-type":"application/json"
+        },
+        body:JSON.stringify({
+            idproduto:dados._id,
+            nomeproduto:dados.nomeproduto,
+            preco:dados.preco,
+            foto:dados.foto
+        })
+    })
+    .then((Response)=>Response.json())
+    .then((resultado)=>alert(resultado.rs))
+.catch((error)=>alert(`Não foi possivel adicionar -> ${error}`))
+
+}

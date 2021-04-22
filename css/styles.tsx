@@ -23,8 +23,7 @@ export const styles = StyleSheet.create({
     },
 
     cxproduto:{
-        width:"47%",
-        margin:6,
+        
         shadowColor:'#000',
         shadowOpacity:0.8,
         shadowRadius:2,
@@ -36,7 +35,28 @@ export const styles = StyleSheet.create({
     display:{
         flexDirection:'row',
         flexWrap:'wrap'
+    },
+    acesso:{
+        width:200,
+    },
+    fotodetalhe:{
+        width:400,
+        height:300
+    },
+    btncarrinho:{
+        backgroundColor:'black',
+        width:200,
+        marginLeft:110,
+        marginRight:'auto',
+        padding:10,
+        marginTop:100
+    },
+    txtcarrinho:{
+        color:'#fff',
+        fontWeight:'bold',
+        textAlign:'center'
     }
+
 
 
 

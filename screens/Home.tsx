@@ -14,8 +14,8 @@ export default function Home(){
     return(
         <NavigationContainer independent={true}>
         <Stack.Navigator>
-            <Stack.Screen name="listarProduto" component={listarProduto}/>
-            <Stack.Screen name="Detalhes" component={Detalhes}/>
+            <Stack.Screen name="listarProduto" component={listarProduto} options={{headerShown:false}}/>
+            <Stack.Screen name="Detalhes" component={Detalhes} options={{headerShown:false}}/>
         </Stack.Navigator>
     </NavigationContainer>
 )
@@ -49,7 +49,7 @@ React.useEffect(()=>{
 
     return(
         <View style={styles.container}>
-            <Text> Tela Home </Text>
+            
 
             <View style={styles.display}>
 
@@ -57,7 +57,7 @@ React.useEffect(()=>{
                 produto.map((item,ix)=>(
                     <TouchableOpacity onPress={()=>{
                         navigation.navigate("Detalhes",{idproduto:`${item._id}`})
-                    }}>
+                    }} style={styles.acesso}>
                     <View key={item._id} style={styles.cxproduto}>
                         <Image source={{uri:`${item.foto}`}} style={styles.foto}/>
 
