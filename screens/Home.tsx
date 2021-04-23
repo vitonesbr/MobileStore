@@ -4,7 +4,7 @@ import {ipserver} from "../config/settings";
 import {styles} from '../css/styles';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 import Navigation from "../navigation";
 import Detalhes from "./Detalhes";
 
@@ -41,7 +41,7 @@ React.useEffect(()=>{
     .then((response)=>response.json())
     .then((resultado)=>setProduto(resultado.rs))
     .catch((erro)=>console.error(`Erro ao tentar carregar os produtos ->${erro}`));
-},[])
+},)
 
 
 
@@ -49,6 +49,8 @@ React.useEffect(()=>{
 
     return(
         <View style={styles.container}>
+
+            <ScrollView horizontal={false}>
             
 
             <View style={styles.display}>
@@ -69,7 +71,7 @@ React.useEffect(()=>{
                 ))
             }
             </View>
-
+            </ScrollView>
         </View>
     )
 }
